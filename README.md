@@ -49,12 +49,6 @@ python generate_cn.py --dataset ours --split test --device cuda --num_beams 10 -
 ```
 
 ### 注意修改一下generate三个文件的路径，ours数据集就是comet数据集
-
+##  做完这些工作才能正式训练模型
 python main.py --model_name bert --dataset gossip 
-```
-where `--dataset` includes gossip, weibo, ours, politifact, snopes; `--model_name` contains bert, bertemo, eann, mdfend.
 
-### Citation
-```
-
-```
