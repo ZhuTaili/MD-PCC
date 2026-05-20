@@ -1,6 +1,7 @@
 # MD-PCC
 Source code of the paper titled "Robust Misinformation Detection by Visiting Potential Commonsense
 Conflict"
+## 目前的工作：
 
 ## 模型下载（记得改一下generate_cn.py的三个文件的路径）
 ### 第一个 ： https://www.modelscope.cn/models/google/mt5-large/files
@@ -49,35 +50,6 @@ python generate_cn.py --dataset ours --split test --device cuda --num_beams 10 -
 
 ### 注意修改一下generate三个文件的路径，ours数据集就是comet数据集
 
-
-
-### Requirements
-
-```
-torch==1.12.1
-cudatoolkit==11.3.1
-transformers==4.27.4
-```
-
-### Prepare Datasets
-
-
-
-### Run
-
-1. Generate augmented samples
-
-- for English datasets, you can run
-```shell
-python generate.py --dataset gossip --icl_num 5
-```
-- for Chinese datasets, you can run
-```shell
-python generate_cn.py --dataset weibo --icl_num 5
-```
-
-2. Train misinformation detectors
-```shell
 python main.py --model_name bert --dataset gossip 
 ```
 where `--dataset` includes gossip, weibo, ours, politifact, snopes; `--model_name` contains bert, bertemo, eann, mdfend.
