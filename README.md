@@ -6,7 +6,7 @@ Conflict"
 ## 模型下载（记得改一下generate_cn.py的三个文件的路径）
 ### 第一个 ： https://www.modelscope.cn/models/google/mt5-large/files
 ### 第二个 ： https://huggingface.co/svjack/comet-atomic-zh/tree/main
-### 第三个 ： https://huggingface.co/hfl/chinese-bert-wwm-ext/tree/main，目前使用的是bert而已
+### 第三个 ： https://huggingface.co/hfl/chinese-bert-wwm-ext/tree/main，目前使用的是bert而已(还没用到)
 ### 微博数据集，英文数据集的位置：
 ```
 You can download _Weibo_ and _GossipCop_ from [ENDEF, SIGIR 2023](https://github.com/ICTMCG/ENDEF-SIGIR2022), and place them to the folder `./data`;
