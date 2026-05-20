@@ -2,6 +2,14 @@
 Source code of the paper titled "Robust Misinformation Detection by Visiting Potential Commonsense
 Conflict"
 
+## 模型下载
+### 第一个 ： https://www.modelscope.cn/models/google/mt5-large/files
+### 第二个 ： https://huggingface.co/svjack/comet-atomic-zh/tree/main
+### 微博数据集，英文数据集的位置：
+```
+You can download _Weibo_ and _GossipCop_ from [ENDEF, SIGIR 2023](https://github.com/ICTMCG/ENDEF-SIGIR2022), and place them to the folder `./data`;
+Our constructed dataset is located in `./data/ours`.
+```
 ## 修改预览总结
 ### 📝 generate_cn.py 的改动
 改动点 原值 新值 --device 默认值 cuda:0 cpu --icl_num 默认值 0 保持 0 新增 --num_beams 无 默认 1 (贪心解码) 新增 --comet_num_beams 无 默认 1 删除了 if args.device == "cpu" 的分支判断 - 统一用 args.num_beams 添加内层进度显示 无 每 6 个关系打印一次进度
@@ -22,8 +30,7 @@ transformers==4.27.4
 
 ### Prepare Datasets
 
-You can download _Weibo_ and _GossipCop_ from [ENDEF, SIGIR 2023](https://github.com/ICTMCG/ENDEF-SIGIR2022), and place them to the folder `./data`;
-Our constructed dataset is located in `./data/ours`.
+
 
 ### Run
 
