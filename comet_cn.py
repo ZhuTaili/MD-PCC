@@ -18,14 +18,15 @@ def chunks(lst, n):
 
 
 class Comet:
-    def __init__(self, model_path, device):
+    def __init__(self, model_path, device, num_beams=1):
         self.device = device
         self.model = T5ForConditionalGeneration.from_pretrained(model_path).to(self.device)
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
         task = "summarization"
         use_task_specific_params(self.model, task)
         self.batch_size = 1
-        self.decoder_start_token_id = None
+        self.num_beams = num_beams
+        self.decoder_start_token_id = self.model.config.decoder_start_token_id or self.tokenizer.pad_token_id or 0
 
     def generate(
             self,
@@ -50,11 +51,11 @@ class Comet:
                     input_ids=input_ids,
                     attention_mask=attention_mask,
                     decoder_start_token_id=self.decoder_start_token_id,
-                    num_beams=num_generate,
+                    num_beams=self.num_beams,
                     num_return_sequences=1,
-                    top_p=0.95, top_k=50, repetition_penalty=2.5, length_penalty=1.0,
-                    max_length=50)
-                # BART tokenizer has <cls> and <sep> tokens
+                    max_length=50,
+                    early_stopping=True,
+                )
                 loss = self.model(input_ids=input_ids, labels=label).loss.item()
                 losses.append(loss)
                 dec = self.tokenizer.batch_decode(summaries, skip_special_tokens=True, clean_up_tokenization_spaces=False)

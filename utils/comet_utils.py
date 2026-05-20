@@ -190,6 +190,9 @@ logger = getLogger(__name__)
 
 def use_task_specific_params(model, task):
     """Update config with summarization specific params."""
+    if not hasattr(model.config, 'task_specific_params'):
+        return
+    
     task_specific_params = model.config.task_specific_params
 
     if task_specific_params is not None:
