@@ -1,4 +1,4 @@
-# MD-PCC
+# MD-PCC(试验结束后会删除，仅作为学习)
 Source code of the paper titled "Robust Misinformation Detection by Visiting Potential Commonsense
 Conflict"
 ## 目前的工作：
